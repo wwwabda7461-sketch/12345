@@ -412,45 +412,50 @@ export default function App() {
     <div 
       id="app-root-container"
       dir={lang === 'ar' ? 'rtl' : 'ltr'} 
-      className="min-h-screen bg-slate-950 text-gray-100 flex flex-col justify-between py-6 px-4 md:px-8 select-none font-sans"
+      className="min-h-screen bg-[#0a0a0c] text-slate-100 flex flex-col justify-between py-6 px-4 md:px-8 select-none font-sans relative"
     >
       
-      {/* Decorative Glow Elements */}
-      <div className="absolute top-[-10%] left-[20%] w-[400px] h-[400px] rounded-full bg-teal-500/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[10%] w-[350px] h-[350px] rounded-full bg-indigo-500/10 blur-[130px] pointer-events-none" />
+      {/* Decorative Gradient Glows for Premium Ambiance */}
+      <div className="absolute top-[-5%] left-[10%] w-[500px] h-[500px] rounded-full bg-emerald-500/5 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[5%] w-[450px] h-[450px] rounded-full bg-violet-500/5 blur-[160px] pointer-events-none" />
 
-      {/* Header Panel */}
-      <header id="app-header" className="max-w-6xl w-full mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 border-b border-slate-800/60 pb-5 z-10">
+      {/* Header Panel with cute Apple-style retro browser controls */}
+      <header id="app-header" className="max-w-6xl w-full mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 border-b border-white/10 pb-5 z-10">
         
-        {/* Logo and branding */}
+        {/* Logo, OS circles & branding */}
         <div className="flex items-center gap-3.5">
-          <div className="bg-gradient-to-tr from-teal-500 to-emerald-400 p-2.5 rounded-2xl shadow-lg shadow-teal-500/20">
-            <Calculator className="w-6 h-6 text-slate-950 stroke-[2.5]" />
+          <div className="flex items-center gap-1.5 bg-[#121218] px-3 py-2 rounded-xl border border-white/5 select-none mr-2">
+            <span className="w-2 rounded-full h-2 bg-rose-500 inline-block shadow-sm" />
+            <span className="w-2 rounded-full h-2 bg-amber-500 inline-block shadow-sm" />
+            <span className="w-2 rounded-full h-2 bg-emerald-500 inline-block shadow-sm" />
+          </div>
+          <div className="bg-emerald-500 text-slate-950 p-2 rounded-xl shadow-lg shadow-emerald-500/10">
+            <Calculator className="w-5 h-5 stroke-[2.5]" />
           </div>
           <div className="text-right sm:text-left">
             <div className="flex items-center gap-2">
-              <span className="text-xs bg-teal-500/10 text-teal-400 font-bold px-2.5 py-0.5 rounded-full border border-teal-500/20 uppercase tracking-widest font-mono">
-                Pro Tools v3.5
+              <span className="text-[10px] bg-emerald-500/10 text-emerald-400 font-extrabold px-2.5 py-0.5 rounded-full border border-emerald-500/25 tracking-wider font-mono">
+                BENTO PRO v4.2
               </span>
             </div>
-            <h1 className="text-xl md:text-2xl font-black bg-gradient-to-r from-teal-200 via-indigo-200 to-emerald-200 bg-clip-text text-transparent">
+            <h1 className="text-lg md:text-xl font-extrabold tracking-tight text-white leading-tight">
               {t.title}
             </h1>
           </div>
         </div>
 
-        {/* Global toggles: language change, active calculated layout view switches */}
+        {/* Global toggles: Mode select, history drawer switch, language toggle */}
         <div className="flex flex-wrap items-center gap-3">
           
-          {/* Mode Switcher Buttons */}
-          <div className="bg-slate-900/80 p-1 rounded-2xl border border-slate-850 flex items-center gap-0.5 shadow-inner">
+          {/* Bento Mode Switcher Panel */}
+          <div className="bg-white/5 p-1 rounded-2xl border border-white/5 flex items-center gap-0.5 shadow-lg">
             <button
               id="tab-mode-standard"
               onClick={() => setMode('standard')}
-              className={`px-3 md:px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+              className={`px-3 md:px-4.5 py-2 rounded-xl text-xs font-black transition-all duration-200 cursor-pointer ${
                 mode === 'standard'
-                  ? 'bg-gradient-to-r from-slate-800 to-slate-750 text-teal-400 shadow shadow-slate-950/40 border border-slate-700/30'
-                  : 'text-gray-400 hover:text-gray-200'
+                  ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               {t.standard}
@@ -458,10 +463,10 @@ export default function App() {
             <button
               id="tab-mode-scientific"
               onClick={() => setMode('scientific')}
-              className={`px-3 md:px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+              className={`px-3 md:px-4.5 py-2 rounded-xl text-xs font-black transition-all duration-200 cursor-pointer ${
                 mode === 'scientific'
-                  ? 'bg-gradient-to-r from-slate-800 to-slate-750 text-teal-400 shadow shadow-slate-950/40 border border-slate-700/30'
-                  : 'text-gray-400 hover:text-gray-200'
+                  ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               {t.scientific}
@@ -469,10 +474,10 @@ export default function App() {
             <button
               id="tab-mode-converter"
               onClick={() => setMode('converter')}
-              className={`px-3 md:px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+              className={`px-3 md:px-4.5 py-2 rounded-xl text-xs font-black transition-all duration-200 cursor-pointer ${
                 mode === 'converter'
-                  ? 'bg-gradient-to-r from-slate-800 to-slate-750 text-teal-400 shadow shadow-slate-950/40 border border-slate-700/30'
-                  : 'text-gray-400 hover:text-gray-200'
+                  ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               {t.converter}
@@ -487,27 +492,27 @@ export default function App() {
               title={t.history}
               className={`p-2.5 rounded-xl border transition-all duration-200 cursor-pointer flex items-center justify-center ${
                 showHistoryPane
-                  ? 'bg-teal-500/10 text-teal-400 border-teal-500/30'
-                  : 'bg-slate-900 hover:bg-slate-800 text-gray-400 border-slate-800'
+                  ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30 shadow-md'
+                  : 'bg-white/5 hover:bg-white/10 text-slate-400 border-white/5'
               }`}
             >
               <HistoryIcon className="w-5 h-5" />
             </button>
           )}
 
-          {/* Language translation selector */}
+          {/* Language selector */}
           <button
             id="btn-toggle-lang"
             onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
-            className="flex items-center gap-1.5 p-2.5 bg-slate-900 hover:bg-slate-800 text-gray-300 rounded-xl transition-all duration-150 border border-slate-800/80 cursor-pointer text-xs font-bold"
+            className="flex items-center gap-1.5 p-2.5 bg-white/5 hover:bg-white/10 text-slate-300 rounded-xl transition-all duration-150 border border-white/5 cursor-pointer text-xs font-bold"
           >
-            <Globe className="w-4 h-4 text-teal-400" />
+            <Globe className="w-4 h-4 text-emerald-400" />
             <span>{lang === 'ar' ? 'English' : 'العربية'}</span>
           </button>
         </div>
       </header>
 
-      {/* Main Panel Frame */}
+      {/* Main Grid Frame */}
       <main className="max-w-6xl w-full mx-auto my-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start z-10 flex-1">
         
         {/* Core Calculation UI Panel */}
@@ -517,42 +522,47 @@ export default function App() {
         `}>
           
           {mode !== 'converter' ? (
-            <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-3xl p-6 flex flex-col gap-5 shadow-2xl relative">
+            <div className="flex flex-col gap-6">
               
-              {/* Display Screens */}
+              {/* Display Screens Card (Bento Panel Primary) */}
               <div 
                 id="display-screen" 
                 onClick={copyDisplayResult}
-                className="bg-slate-950/90 rounded-2xl p-5 md:p-6 border border-slate-800/80 relative flex flex-col justify-between items-end gap-2 text-right group cursor-pointer hover:border-slate-700/60 transition-all duration-150 active:ring-1 active:ring-teal-500/20"
+                className="bento-panel-primary p-6 md:p-8 relative flex flex-col justify-between items-end gap-3 text-right group cursor-pointer hover:border-emerald-500/20 hover:shadow-emerald-500/[0.02] shadow-2xl transition-all duration-200 active:ring-1 active:ring-emerald-500/20 overflow-hidden"
               >
-                {/* Copied helper tool */}
-                <span className="absolute left-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-800/90 text-[10px] text-gray-300 py-1 px-2.5 rounded-lg flex items-center gap-1">
-                  {copied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-teal-400" />}
+                {/* Visual Watermark matching reference */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] text-6xl md:text-7xl font-sans font-black select-none pointer-events-none tracking-tighter uppercase whitespace-nowrap">
+                  {lang === 'ar' ? 'حسابة احترافية' : 'PRO CALCULATOR'}
+                </div>
+
+                {/* Copied helper indicator overlay */}
+                <span className="absolute left-6 top-6 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-900/90 text-[10px] text-gray-300 py-1 px-2.5 rounded-lg flex items-center gap-1 border border-white/5">
+                  {copied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-emerald-400" />}
                   <span>{copied ? t.copied : t.copy}</span>
                 </span>
 
-                {/* Status bar triggers (RAD/DEG, memory register state) */}
-                <div className="flex items-center gap-2 select-none self-start">
-                  <span className="text-[10px] bg-slate-850 border border-slate-800 font-mono text-gray-400 px-2 py-0.5 rounded-md">
+                {/* Status Bar Indicators (Memory state, Angle parameters) */}
+                <div className="flex items-center gap-2 select-none self-start z-10">
+                  <span className="text-[10px] bg-white/5 border border-white/5 font-mono text-slate-400 px-3 py-1 rounded-md">
                     {isDeg ? 'DEG' : 'RAD'}
                   </span>
                   {memory !== 0 && (
-                    <span className="text-[10px] bg-amber-500/10 border border-amber-500/25 font-bold text-amber-400 px-2.5 py-0.5 rounded-md flex items-center gap-1">
+                    <span className="text-[10px] bg-emerald-500/10 border border-emerald-500/20 font-bold text-emerald-400 px-2.5 py-1 rounded-md flex items-center gap-1 animate-pulse">
                       <Sparkles className="w-2.5 h-2.5" />
                       M = {formatResult(memory)}
                     </span>
                   )}
                 </div>
 
-                {/* Primary computational formula expression */}
-                <div className="w-full text-right overflow-x-auto select-all scrollbar-none py-1.5 min-h-[44px]">
-                  <span id="expression-value" className="text-gray-300 text-lg md:text-2xl font-mono tracking-wide whitespace-nowrap leading-relaxed unicode-bidi-plaintext">
+                {/* Formulated Expression Row */}
+                <div className="w-full text-right overflow-x-auto select-all scrollbar-none py-2 min-h-[48px] z-10">
+                  <span id="expression-value" className="text-slate-350 text-xl md:text-2xl font-mono tracking-wide whitespace-nowrap leading-relaxed unicode-bidi-plaintext">
                     {expression || '0'}
                   </span>
                 </div>
 
-                {/* Sub-results / Ghost outputs */}
-                <div className="w-full h-8 flex items-center justify-end font-mono">
+                {/* Computed Final Result Row */}
+                <div className="w-full min-h-[44px] flex items-center justify-end font-mono z-10">
                   <AnimatePresence mode="wait">
                     {result ? (
                       <motion.span
@@ -561,7 +571,7 @@ export default function App() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 4 }}
                         id="final-result-value"
-                        className="text-2xl md:text-3.5xl font-extrabold text-teal-400 tracking-wider overflow-x-auto scrollbar-none"
+                        className="text-3xl md:text-4xl font-black text-emerald-400 tracking-wider overflow-x-auto scrollbar-none"
                       >
                         = {result}
                       </motion.span>
@@ -571,7 +581,7 @@ export default function App() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 0.55 }}
                         id="ghost-result-value"
-                        className="text-lg md:text-xl font-bold text-gray-400 tracking-wider overflow-x-auto scrollbar-none"
+                        className="text-xl md:text-2xl font-bold text-slate-500 tracking-wider overflow-x-auto scrollbar-none"
                       >
                         = {livePreview}
                       </motion.span>
@@ -580,77 +590,187 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Action Buttons Keygrid standard or scientific */}
-              <div className="relative">
-                <AnimatePresence mode="wait">
-                  {mode === 'standard' ? (
-                    <motion.div
-                      key="standard-kbd"
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -15 }}
-                      transition={{ duration: 0.18 }}
-                      id="standard-keypad"
-                      className="grid grid-cols-4 gap-3 md:gap-4 select-none"
-                    >
-                      {standardKeys.map((key) => {
-                        const isKeyboardActive = activeKey === key.id;
-                        return (
-                          <CalcButton
-                            key={key.id}
-                            id={key.id}
-                            label={key.label}
-                            onClick={key.action}
-                            variant={key.variant}
-                            isActive={isKeyboardActive}
-                          />
-                        );
-                      })}
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="scientific-kbd"
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -15 }}
-                      transition={{ duration: 0.18 }}
-                      id="scientific-keypad"
-                      className="grid grid-cols-5 gap-2 md:gap-3 select-none"
-                    >
-                      {scientificKeys.map((key) => {
-                        const isKeyboardActive = activeKey === key.id;
-                        return (
-                          <CalcButton
-                            key={key.id}
-                            id={key.id}
-                            label={key.label}
-                            subLabel={key.subLabel}
-                            onClick={key.action}
-                            variant={key.variant}
-                            className={key.className}
-                            isActive={isKeyboardActive}
-                          />
-                        );
-                      })}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+              {/* Sub-Bento Multi-column (Keyboard row next to Constants & Memory sidebar) */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                
+                {/* Keypad block (col-span-8 or 9) */}
+                <div className="col-span-12 md:col-span-8 lg:col-span-9 bento-panel-primary p-5 md:p-6 shadow-xl relative">
+                  <AnimatePresence mode="wait">
+                    {mode === 'standard' ? (
+                      <motion.div
+                        key="standard-kbd"
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -15 }}
+                        transition={{ duration: 0.18 }}
+                        id="standard-keypad"
+                        className="grid grid-cols-4 gap-3 md:gap-4 select-none"
+                      >
+                        {standardKeys.map((key) => {
+                          const isKeyboardActive = activeKey === key.id;
+                          return (
+                            <CalcButton
+                              key={key.id}
+                              id={key.id}
+                              label={key.label}
+                              onClick={key.action}
+                              variant={key.variant}
+                              isActive={isKeyboardActive}
+                            />
+                          );
+                        })}
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="scientific-kbd"
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -15 }}
+                        transition={{ duration: 0.18 }}
+                        id="scientific-keypad"
+                        className="grid grid-cols-5 gap-2 md:gap-3 select-none"
+                      >
+                        {scientificKeys.map((key) => {
+                          const isKeyboardActive = activeKey === key.id;
+                          return (
+                            <CalcButton
+                              key={key.id}
+                              id={key.id}
+                              label={key.label}
+                              subLabel={key.subLabel}
+                              onClick={key.action}
+                              variant={key.variant}
+                              className={key.className}
+                              isActive={isKeyboardActive}
+                            />
+                          );
+                        })}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Auxiliary Bento panels stack side-column */}
+                <div className="col-span-12 md:col-span-4 lg:col-span-3 flex flex-col gap-4">
+                  
+                  {/* Card 1: Live Memory control panel */}
+                  <div className="bento-panel-alt p-5 flex flex-col justify-between shadow-md border border-white/5 relative overflow-hidden">
+                    <div className="text-[10px] text-slate-500 font-extrabold uppercase tracking-widest mb-1 select-none">
+                      {lang === 'ar' ? 'الذاكرة المشغلة' : 'Active Memory'}
+                    </div>
+                    <div className="text-xl font-mono font-bold text-slate-300 truncate tracking-wide py-1">
+                      {formatResult(memory)}
+                    </div>
+                    <div className="flex gap-1.5 mt-2 z-10">
+                      <button 
+                        id="btn-mem-add-quick"
+                        onClick={() => handleMemoryOperation('M+')}
+                        className="text-[10px] font-black bg-white/5 hover:bg-emerald-500/10 hover:text-emerald-400 active:scale-95 text-slate-300 transition-all px-2.5 py-1.5 rounded-lg cursor-pointer flex-1 text-center border border-white/5 hover:border-emerald-500/20"
+                        title={lang === 'ar' ? 'إضافة للذاكرة' : 'Add to memory'}
+                      >
+                        M+
+                      </button>
+                      <button
+                        id="btn-mem-recall-quick"
+                        onClick={() => handleMemoryOperation('MR')}
+                        className="text-[10px] font-black bg-white/5 hover:bg-emerald-500/10 hover:text-emerald-400 active:scale-95 text-slate-300 transition-all px-2.5 py-1.5 rounded-lg cursor-pointer flex-1 text-center border border-white/5 hover:border-emerald-500/20"
+                        title={lang === 'ar' ? 'استيراد الذاكرة' : 'Recall memory'}
+                      >
+                        MR
+                      </button>
+                      <button
+                        id="btn-mem-clear-quick"
+                        onClick={() => handleMemoryOperation('MC')}
+                        className="text-[10px] font-black bg-rose-500/10 hover:bg-rose-500/25 active:scale-95 text-rose-400 transition-all px-2.5 py-1.5 rounded-lg cursor-pointer flex-1 text-center border border-rose-500/10"
+                        title={lang === 'ar' ? 'تصفير الذاكرة' : 'Clear memory'}
+                      >
+                        MC
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Card 2: Interactive Constants Panel */}
+                  <div className="bento-panel-alt p-5 flex flex-col justify-between shadow-md border border-white/5 hover:border-emerald-500/15 transition-all duration-200 group">
+                    <div className="text-[10px] text-slate-500 font-extrabold uppercase tracking-widest mb-2 select-none">
+                      {lang === 'ar' ? 'الثوابت الرياضية' : 'Math Constants'}
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <button 
+                        id="btn-pi-const"
+                        onClick={() => handleInput('π')}
+                        className="flex justify-between items-center bg-white/[0.02] hover:bg-emerald-500/10 p-1 px-2.5 rounded-lg transition-colors cursor-pointer text-left border border-white/5"
+                      >
+                        <span className="text-emerald-400 font-mono font-bold italic">π</span>
+                        <span className="text-[10px] text-slate-400 font-mono">3.14159</span>
+                      </button>
+                      <button 
+                        id="btn-e-const"
+                        onClick={() => handleInput('e')}
+                        className="flex justify-between items-center bg-white/[0.02] hover:bg-emerald-500/10 p-1 px-2.5 rounded-lg transition-colors cursor-pointer text-left border border-white/5"
+                      >
+                        <span className="text-emerald-400 font-mono font-bold italic">e</span>
+                        <span className="text-[10px] text-slate-400 font-mono">2.71828</span>
+                      </button>
+                      <button 
+                        id="btn-phi-const"
+                        onClick={() => handleInput('1.6180339887')}
+                        className="flex justify-between items-center bg-white/[0.02] hover:bg-emerald-500/10 p-1 px-2.5 rounded-lg transition-colors cursor-pointer text-left border border-white/5"
+                      >
+                        <span className="text-emerald-400 font-mono font-bold italic">φ</span>
+                        <span className="text-[10px] text-slate-400 font-mono">1.61803</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Card 3: Quick Degrees/Radians Switcher */}
+                  <div className="bento-panel-alt p-5 flex flex-col justify-between shadow-md border border-white/5">
+                    <div className="text-[10px] text-slate-500 font-extrabold uppercase tracking-widest select-none">
+                      {lang === 'ar' ? 'نظام قياس الزوايا' : 'Angle Measurement'}
+                    </div>
+                    <div className="flex items-center justify-between gap-2 mt-2.5">
+                      <button
+                        id="btn-quick-deg"
+                        onClick={() => setIsDeg(true)}
+                        className={`flex-1 py-1.5 px-2 rounded-lg text-[10px] font-black text-center transition-all cursor-pointer ${
+                          isDeg 
+                            ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 shadow-sm shadow-emerald-500/5 font-black' 
+                            : 'bg-white/5 text-slate-400 border border-transparent hover:text-slate-200'
+                        }`}
+                      >
+                        {lang === 'ar' ? 'درجات' : 'DEG'}
+                      </button>
+                      <button
+                        id="btn-quick-rad"
+                        onClick={() => setIsDeg(false)}
+                        className={`flex-1 py-1.5 px-2 rounded-lg text-[10px] font-black text-center transition-all cursor-pointer ${
+                          !isDeg 
+                            ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 shadow-sm shadow-emerald-500/5 font-black' 
+                            : 'bg-white/5 text-slate-400 border border-transparent hover:text-slate-200'
+                        }`}
+                      >
+                        {lang === 'ar' ? 'راديان' : 'RAD'}
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+
               </div>
 
-              {/* Small informational help hint */}
-              <div className="flex items-center gap-1.5 text-[11px] text-gray-500 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/40">
-                <Info className="w-3.5 h-3.5 text-teal-500 flex-shrink-0" />
+              {/* Informational Help Box */}
+              <div className="flex items-center gap-2.5 text-[11px] text-slate-450 bg-white/5 p-3 px-4 rounded-2xl border border-white/5">
+                <Info className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
                 <span>
                   {lang === 'ar' 
-                    ? 'يمكنك استخدام لوحة المفاتيح الملموسة لجهاز الكمبيوتر لكتابة الأرقام والقرائن الحسابية الأساسية (+, -, *, /, Delete, Enter)!' 
-                    : 'Protip: Feel free to use your computer physical keyboard keys (+, -, *, /, Backspace, Enter, Esc) to input math.'}
+                    ? 'تلميح: يمكنك استخدام لوحة المفاتيح الفعلية لجهازك لكتابة الأرقام والعمليات الرياضية الأساسية مباشرة!' 
+                    : 'Protip: Feel free to use your physical computer keyboard keys (digits, +, -, *, /, Backspace, Enter, Esc) to calculate instantaneously!'}
                 </span>
               </div>
 
             </div>
           ) : (
-            /* Unit Converter Mode */
-            <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-3xl p-6 shadow-2xl">
+            /* Unit Converter Mode (Bento Panel Primary) */
+            <div className="bento-panel-primary p-6 md:p-8 shadow-2xl relative">
               <UnitConverter lang={lang} t={t} />
             </div>
           )}
@@ -672,14 +792,14 @@ export default function App() {
 
       </main>
 
-      {/* Decorative clean human footer line (no tech clutter or simulation logs) */}
-      <footer id="app-footer" className="max-w-6xl w-full mx-auto border-t border-slate-800/50 pt-5 mt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-3">
+      {/* Decorative clean footer (no telemetry, no simulated system larping logs) */}
+      <footer id="app-footer" className="max-w-6xl w-full mx-auto border-t border-white/10 pt-5 mt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-3">
         <span>
           © {new Date().getFullYear()} {t.title}
         </span>
         <div className="flex items-center gap-4">
-          <span className="font-mono text-[10px]">
-            {lang === 'ar' ? 'مصمم وفق أعلى معايير الدقة والجماليات' : 'Designed to standard-grade specs'}
+          <span className="font-mono text-[10px] tracking-wide uppercase">
+            {lang === 'ar' ? 'مصمم بأعلى معايير الإتقان والدقة' : 'Designed to standard-grade specs'}
           </span>
         </div>
       </footer>

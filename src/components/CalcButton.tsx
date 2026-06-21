@@ -26,19 +26,19 @@ export default function CalcButton({
   
   switch (variant) {
     case 'num':
-      btnStyle = 'bg-slate-800/60 hover:bg-slate-700/80 text-gray-100 active:bg-slate-600 border border-slate-700/40 shadow-sm';
+      btnStyle = 'bg-white/5 hover:bg-white/10 text-white border border-white/5 shadow-sm active:bg-white/15';
       break;
     case 'operator':
-      btnStyle = 'bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold active:bg-amber-600 shadow-md shadow-amber-500/10';
+      btnStyle = 'bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 border border-emerald-500/20 shadow-sm active:bg-emerald-500/40';
       break;
     case 'func':
-      btnStyle = 'bg-slate-900/80 hover:bg-slate-800 text-teal-400 active:bg-slate-950 border border-teal-950/40 font-mono text-sm';
+      btnStyle = 'bg-white/5 hover:bg-emerald-500/20 hover:text-emerald-400 text-slate-300 border border-white/5 font-mono text-sm transition-colors duration-150';
       break;
     case 'danger':
-      btnStyle = 'bg-rose-500/20 hover:bg-rose-500/30 text-rose-400 border border-rose-500/30 active:bg-rose-500/40 text-sm';
+      btnStyle = 'bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 active:bg-rose-500/30 text-sm';
       break;
     case 'equal':
-      btnStyle = 'bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold active:bg-teal-600 shadow-md shadow-teal-500/20';
+      btnStyle = 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black shadow-[0_0_20px_rgba(16,185,129,0.4)] active:brightness-95';
       break;
   }
 
@@ -52,7 +52,7 @@ export default function CalcButton({
         relative select-none flex flex-col items-center justify-center rounded-2xl h-14 md:h-16
         font-medium transition-all duration-150 button-press-effect cursor-pointer
         ${btnStyle}
-        ${isActive ? 'ring-2 ring-teal-400 scale-95 shadow-lg brightness-110' : ''}
+        ${isActive ? 'ring-2 ring-emerald-400 scale-95 shadow-lg brightness-110' : ''}
         ${className}
       `}
     >

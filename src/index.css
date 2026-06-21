@@ -9,23 +9,42 @@
 /* Custom background animations or elegant styled elements */
 body {
   font-family: var(--font-sans);
-  background-color: #0b0f19;
-  color: #f3f4f6;
+  background-color: #0a0a0c;
+  color: #ffffff;
   overflow-x: hidden;
+}
+
+/* Bento Grid Panels defined in theme */
+.bento-panel-primary {
+  background-color: #16161e;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2rem;
+}
+
+.bento-panel-side {
+  background-color: #121218;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2rem;
+}
+
+.bento-panel-alt {
+  background-color: #1c1c24;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2rem;
 }
 
 /* Glassmorphism utility */
 .glass-panel {
-  background: rgba(17, 24, 39, 0.7);
+  background: rgba(22, 22, 30, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .button-press-effect {
-  transition: transform 0.08s ease-in-out, background-color 0.15s ease-in-out;
+  transition: transform 0.08s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .button-press-effect:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
