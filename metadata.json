@@ -1,0 +1,6 @@
+{
+  "name": "Professional Calculator",
+  "description": "حاسبة احترافية أنيقة تدعم العمليات الحسابية الأساسية والعلمية مع سجل العمليات الحسابية وتصميم عصري.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
